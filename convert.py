@@ -1,16 +1,27 @@
 #!/usr/bin/python3
 import png, array, struct
 
-## Configuration                                                    ##
+######################################################################
+## Configuration Start                                              ##
+######################################################################
+# Image size:
 width = 640
 height = 480
+
+# Input & Output file:
 inputFile = "out.yuv"
 outputFile = "newfile.png"
-# For uyvy:
-#def mapper(b1,b2,b3,b4): return (b1,b2,b3,b4)
+
+# Byte order in input file:
+# For uyvy: (see https://www.fourcc.org/pixel-format/yuv-uyvy/)
+def mapper(b1,b2,b3,b4): return (b1,b2,b3,b4)
 # For yuyv:
-def mapper(b1,b2,b3,b4): return (b2,b1,b4,b3)
-# See https://www.fourcc.org/pixel-format/yuv-uyvy/
+#def mapper(b1,b2,b3,b4): return (b2,b1,b4,b3)
+# For yvyu: (see https://www.fourcc.org/pixel-format/yuv-yvyu/)
+#def mapper(b1,b2,b3,b4): return (b4,b1,b2,b3)
+######################################################################
+## Configuration End                                                ##
+######################################################################
 
 ## Helper function, applies a lower and upper limit to the given    ##
 ## value and returns it back.                                       ##
