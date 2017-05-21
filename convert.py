@@ -39,9 +39,9 @@ def YCbCrToRGB(y,cb,cr):
   cb -= 128
   cr -= 128
   return (
-    clamp(int(float(y) + 1.403*float(cr)),0,255),
-    clamp(int(float(y) - 0.344*float(cb) - 0.714*float(cr)),0,255),
-    clamp(int(float(y) + 1.770*float(cb)),0,255)
+    clamp(int(float(y) + 1.400*float(cr)),0,255),
+    clamp(int(float(y) - 0.343*float(cb) - 0.711*float(cr)),0,255),
+    clamp(int(float(y) + 1.765*float(cb)),0,255)
   )
 
 ## Read the input file and check the size:                          ##
